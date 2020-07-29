@@ -24,7 +24,7 @@ class EquipamentosFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'num_serie' => 'required|min:5'
+            'numero_serie' => 'required|min:5'
         ];
     }
 

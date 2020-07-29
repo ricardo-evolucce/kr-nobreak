@@ -10,6 +10,8 @@ use App\Modelo;
 use App\Equipamento;
 use App\Historico;
 
+use App\Helpers\RemovedorDeEquipamento;
+
 
 
 class EquipamentosController extends Controller
@@ -41,15 +43,10 @@ class EquipamentosController extends Controller
 	}
 
 
-	public function destroy(Request $request)
+	public function destroy(Request $request, RemovedorDeEquipamento $removedorDeEquipamento)
 	{
-		$equipamento = Equipamento::find($request->id);
-		$num_serie = $equipamento->num_serie;
-		$equipamento->historicos->each(function (Historico $historico){
-			$historico->delete();
-		});
-		
-		$equipamento->delete();
+
+		$num_serie = $removedorDeEquipamento->removerEquipamento($request->id);
 
 		$request->session()
 		->flash('mensagem',

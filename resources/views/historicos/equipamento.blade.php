@@ -59,10 +59,33 @@
 	<tbody>
 		@foreach($historicos as $historico)
 			<tr>
-				<th scope="row">{{$historico->data->format('d/m/Y')}}</th>
-				<td>{{$historico->descricao}}</td>
+				<th scope="row">
+					{{$historico->data->format('d/m/Y')}}
+				</th>
+				<td>
+					<span id="historico-{{$historico->id}}">{{$historico->descricao}}</span>
+					<div class="input-group w-50" hidden id="input-historico-{{ $historico->id }}">
+            			<input type="text" class="form-control" value="{{ $historico->descricao }}">
+            			<div class="input-group-append">
+                			<button class="btn btn-primary" onclick="editarSerie({{ $historico->id }})">
+                    			<i class="fas fa-check"></i>
+                			</button>
+                			@csrf
+            			</div>
+        			</div>
+					<button class="btn btn-info btn-sm" onclick="toggleInput({{$historico->id}})"><i class="fas fa-edit"></i></button>
+				</td>
 			</tr>
 		@endforeach
 	</tbody>
 </table>
+
+<script>
+	function toggleInput(historicoId){
+		document.getElementById('input-historico-${historicoId}')
+		.removeAttribute('hidden');
+		document.getElementById('historico-${historicoId}').hidden = true;
+	}
+
+
 @endsection

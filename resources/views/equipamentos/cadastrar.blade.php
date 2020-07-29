@@ -39,11 +39,71 @@ Equipamentos
 
 	        </div>
 	        <div class="col col-6">
-	        	<label for="num_serie">Número de série</label>
-	        	<input class="form-control" type="text" name="num_serie">
+	        	<label for="numero_serie">Número de série</label>
+	        	<input class="form-control" type="text" name="numero_serie">
 
 	        </div>
+
+
 	    </div>
+
+	    <div class="row">
+	    	<div class="col col-3">
+	        	<label for="tensao_entrada">Tensão Entrada</label>
+	        	<select class="form-control" type="text" name="tensao_entrada">
+	        		<option value="1">127v</option>
+	        		<option value="2">220v</option>
+	        	</select>
+	        </div>
+
+	        <div class="col col-3">
+	        	<label for="tensao_saida">Tensão Saída</label>
+	        	<select class="form-control" type="text" name="tensao_saida">
+	        		<option value="1">127v</option>
+	        		<option value="2">220v</option>
+	        	</select>
+	        </div>
+
+	        <div class="col col-3">
+	        	<label for="potencia">Potência</label>
+	        	<input type="text" name="potencia" class="form-control">
+	        </div>
+
+	         <div class="col col-3">
+	        	<label for="fator_potencia">Fator Potência</label>
+	        	<input type="text" name="fator_potencia" class="form-control">
+	        </div>
+	    </div>
+
+	    <div class="row">
+	    	<div class="col col-3">
+	        	<label for="inicio_garantia">Início Garantia</label>
+	        	<input type="date" name="inicio_garantia" class="form-control">
+	        </div>
+
+	        <div class="col col-3">
+	        	<label for="fim_garantia">Fim Garantia</label>
+	        	<select class="form-control" type="text" name="fim_garantia">
+	        		<option value="1">12 meses</option>
+	        		<option value="2">18 meses</option>
+	        		<option value="3">24 meses</option>
+	        	</select>
+	        </div>
+
+	        <div class="col col-3">
+	        	<label for="numero_nfe">Número NFE</label>
+	        	<input type="text" name="numero_nfe" class="form-control">
+	        </div>
+
+	    </div>
+
+	    <div class="row">
+	    	<div class="col col-9">
+	    		<label for="observacoes">Observações</label>
+	    		<textarea name="observacoes" class="form-control"></textarea>
+	    	</div>
+	    </div>
+
         <button class="btn btn-primary">Cadastrar</button>
         </form>
 @endsection

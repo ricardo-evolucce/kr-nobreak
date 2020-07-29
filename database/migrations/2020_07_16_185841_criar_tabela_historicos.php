@@ -16,6 +16,8 @@ class CriarTabelaHistoricos extends Migration
         Schema::create('historicos', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->unsignedBigInteger('equipamento_id');
+            $table->unsignedBigInteger('tipo_manutencao');
+            $table->date('data_proxima_preventiva');
             $table->foreign('equipamento_id')->references('id')->on('equipamentos');
             $table->date('data');
             $table->string('descricao', 800);

@@ -5,7 +5,7 @@ use App\Equipamento;
 
 class Historico extends Model{
 
-	protected $fillable = ['equipamento_id', 'data', 'descricao'];
+	protected $fillable = ['equipamento_id', 'data', 'descricao', 'tipo_manutencao', 'data_proxima_preventiva'];
 
 	protected $dates = ['data'];
 

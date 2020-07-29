@@ -35,7 +35,15 @@ class CriarTabelaEquipamentos extends Migration
             $table->foreign('marca_id')->references('id')->on('marcas');
             $table->unsignedBigInteger('modelo_id');
             $table->foreign('modelo_id')->references('id')->on('modelos');
-            $table->string('num_serie', 30)->unique();
+            $table->string('numero_serie', 30)->unique();
+            $table->string('potencia', 10);
+            $table->string('fator_potencia');
+            $table->unsignedBigInteger('tensao_entrada');
+            $table->unsignedBigInteger('tensao_saida');
+            $table->string('numero_nfe', 10);
+            $table->string('observacoes', 800);
+            $table->date('inicio_garantia');
+            $table->unsignedBigInteger('fim_garantia');
             $table->timestamps(0);
 
         });
