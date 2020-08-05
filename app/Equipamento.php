@@ -7,7 +7,7 @@ use App\Historico;
 class Equipamento extends Model
 {
 	protected $fillable = ['marca_id', 'modelo_id', 'numero_serie', 'potencia', 'fator_potencia', 'tensao_entrada',
-	'tensao_saida', 'numero_nfe', 'observacoes', 'inicio_garantia', 'fim_garantia'];
+	'tensao_saida', 'numero_nfe', 'observacoes', 'inicio_garantia', 'fim_garantia', 'observacoes_internas'];
 
 	protected $dates = ['inicio_garantia'];
 

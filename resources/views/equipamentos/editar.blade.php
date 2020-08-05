@@ -141,9 +141,16 @@
 	    </div>
 
 	    <div class="row">
-	    	<div class="col col-9">
+	    	<div class="col col-12">
 	    		<label for="observacoes">Observações</label>
 	    		<textarea name="observacoes" class="form-control">{{$equipamento->observacoes}}</textarea>
+	    	</div>
+	    </div>
+
+	    <div class="row">
+	    	<div class="col col-12">
+	    		<label for="observacoes_internas">Observações internas</label>
+	    		<textarea name="observacoes_internas" class="form-control">{{$equipamento->observacoes_internas}}</textarea>
 	    	</div>
 	    </div>
 

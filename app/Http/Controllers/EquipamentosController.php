@@ -57,6 +57,7 @@ class EquipamentosController extends Controller
 		$equipamento->fim_garantia = $request->fim_garantia;
 		$equipamento->numero_nfe = $request->numero_nfe;
 		$equipamento->observacoes = $request->observacoes;
+		$equipamento->observacoes_internas = $request->observacoes_internas;
 
 		$equipamento->save();
 

@@ -42,6 +42,7 @@ class CriarTabelaEquipamentos extends Migration
             $table->unsignedBigInteger('tensao_saida');
             $table->string('numero_nfe', 10);
             $table->string('observacoes', 800);
+            $table->string('observacoes_internas', 800);
             $table->date('inicio_garantia');
             $table->unsignedBigInteger('fim_garantia');
             $table->timestamps(0);

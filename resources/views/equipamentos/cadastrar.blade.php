@@ -101,9 +101,16 @@ Equipamentos<h6>Cadastrar equipamento</h6>
 	    </div>
 
 	    <div class="row">
-	    	<div class="col col-9">
+	    	<div class="col col-12">
 	    		<label for="observacoes">Observações</label>
 	    		<textarea name="observacoes" class="form-control"></textarea>
+	    	</div>
+	    </div>
+
+	    <div class="row">
+	    	<div class="col col-12">
+	    		<label for="observacoes_internas">Observações internas</label>
+	    		<textarea name="observacoes_internas" class="form-control"></textarea>
 	    	</div>
 	    </div>
 
