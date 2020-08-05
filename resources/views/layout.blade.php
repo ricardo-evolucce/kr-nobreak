@@ -8,7 +8,7 @@
     <title>Equipamentos</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('js/bootstrap-4.1.3-dist/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/datatables.min.css') }}"/>
-    <link rel="stylesheet" href="/icons/css/all.css">
+    <link rel="stylesheet" href="{{ asset('/icons/css/all.css') }}">
 
     
     <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
