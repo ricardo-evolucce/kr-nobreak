@@ -16,11 +16,13 @@ use App\Helpers\RemovedorDeEquipamento;
 
 class EquipamentosController extends Controller
 {
-	public function index(){
+	public function index(Request $request){
 
-		$equipamentos = Equipamento::query()->orderBy('updated_at')->get();	
+		$equipamentos = Equipamento::with('modelo')->get();	
 
-		return view('equipamentos.index', compact('equipamentos'));
+		$mensagem = $request->session()->get('mensagem');
+
+		return view('equipamentos.index', compact('equipamentos', 'mensagem'));
 	}
 
 	public function create(){
@@ -36,11 +38,35 @@ class EquipamentosController extends Controller
 
 		$request->session()
 		->flash('mensagem',
-		"Equipamento {$equipamento->num_serie} adicionado com sucesso.");
+		"Equipamento {$equipamento->numero_serie} adicionado com sucesso.");
 
 		return redirect()->route('listarEquipamentos');
 		
 	}
+
+	public function update(EquipamentosFormRequest $request){
+		$numero_serie = $request->numero_serie;
+		$equipamento = Equipamento::find($request->id);
+		$equipamento->numero_serie = $numero_serie;
+		$equipamento->marca_id = $request->marca_id;
+		$equipamento->tensao_entrada = $request->tensao_entrada;
+		$equipamento->tensao_saida = $request->tensao_saida;
+		$equipamento->potencia = $request->potencia;
+		$equipamento->fator_potencia = $request->fator_potencia;
+		$equipamento->inicio_garantia = $request->inicio_garantia;
+		$equipamento->fim_garantia = $request->fim_garantia;
+		$equipamento->numero_nfe = $request->numero_nfe;
+		$equipamento->observacoes = $request->observacoes;
+
+		$equipamento->save();
+
+		$request->session()
+		->flash('mensagem', "Equipamento N° série {$equipamento->numero_serie} atualizado com sucesso.");
+
+		return redirect()->route('listarEquipamentos');
+
+	}
+
 
 
 	public function destroy(Request $request, RemovedorDeEquipamento $removedorDeEquipamento)
@@ -50,10 +76,23 @@ class EquipamentosController extends Controller
 
 		$request->session()
 		->flash('mensagem',
-		'Equipamento ($num_serie) removido com sucesso');
+		"Equipamento com N° de série {$num_serie} removido com sucesso");
 
 		return redirect()->route('listarEquipamentos');
 
+	}
+
+	public function show(Request $request)
+	{
+
+		$marcas = Marca::query()->orderBy('nome')->get();
+		$modelos = Modelo::query()->orderBy('nome')->get();
+		$equipamento = Equipamento::find($request->id);
+		$tensoes = ['', '127v', '220v'];
+		$fim_garantia = ['', '12 meses', '18 meses', '24 meses'];
+
+
+		return view('equipamentos.editar', ['equipamento' => $equipamento, 'tensoes' => $tensoes], compact('marcas', 'modelos', 'fim_garantia'));
 	}
 
 

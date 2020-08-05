@@ -7,13 +7,13 @@ class RemovedorDeEquipamento
 	public function removerEquipamento(int $equipamento_id)
 	{
 		$equipamento = Equipamento::find($equipamento_id);
-		$num_serie = $equipamento->num_serie;
+		$numero_serie = $equipamento->numero_serie;
 		$equipamento->historicos->each(function (Historico $historico){
 			$historico->delete();
 	});
 	$equipamento->delete();
 
-	return $equipamento->num_serie;
+	return $numero_serie;
 
 	}
 }

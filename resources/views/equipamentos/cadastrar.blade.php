@@ -1,7 +1,10 @@
 @extends('layout')
 
+@section('menu')
+@endsection
+
 @section('cabecalho')
-Equipamentos
+Equipamentos<h6>Cadastrar equipamento</h6>
 @endsection
 
 @section('conteudo')

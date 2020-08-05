@@ -14,12 +14,12 @@ class Equipamento extends Model
 
 	public function marca()
 	{
-		return $this->hasOne(Marca::class);
+		return $this->belongsTo(Marca::class);
 	}
 
 	public function modelo()
 	{
-		return $this->hasOne(Modelo::class);
+		return $this->belongsTo(Modelo::class);
 	}
 
 	public function historicos(){
