@@ -23,11 +23,16 @@ Route::delete('/equipamentos/remover/{id}', 'EquipamentosController@destroy')->n
 Route::get('/equipamentos/{id}', 'EquipamentosController@show')->name('exibirEquipamento');
 Route::post('/equipamentos/update', 'EquipamentosController@update')->name('editarEquipamento');
 
+
 Route::post('/equipamentos/historicos/cadastrar', 'HistoricosController@store')->name('cadastrarHistoricoEquipamento');
 Route::get('/equipamentos/{id}/historicos/', 'HistoricosController@show')->name('exibirHistoricosEquipamento');
 Route::get('/equipamentos/historico/{id}', 'HistoricosController@edit')->name('exibirHistoricoEquipamento');
 Route::post('/equipamentos/historico', 'HistoricosController@update')->name('editarHistoricoEquipamento');
 Route::delete('/equipamentos/historico/remover/{id}', 'HistoricosController@destroy')->name('removerHistorico');
+
+Route::get('/historicos', 'HistoricosController@indexPublic')->name('indexHistoricoEquipamentoPublic');
+Route::post('/historicos', 'HistoricosController@showPublic')->name('exibirHistoricoEquipamentoPublico');
+
 
 Route::get('/modelos', 'ModelosController@index')->name('listarModelos');
 Route::get('/modelos/cadastrar', 'ModelosController@create')->name('cadastrarModelo');
@@ -39,6 +44,9 @@ Route::post('/marcas/cadastrar', 'MarcasController@store')->name('cadastrarMarca
 Route::delete('/marcas/remover/{id}', 'MarcasController@destroy')->name('removerMarca');
 
 Route::get('/', 'EquipamentosController@index'); 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/entrar', 'EntrarController@index')->name('home');
+Route::post('/entrar', 'EntrarController@entrar');
+

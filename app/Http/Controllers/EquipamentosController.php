@@ -16,6 +16,15 @@ use App\Helpers\RemovedorDeEquipamento;
 
 class EquipamentosController extends Controller
 {
+
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
+
+
 	public function index(Request $request){
 
 		$equipamentos = Equipamento::with('modelo')->get();	

@@ -28,6 +28,31 @@ class HistoricosController extends Controller
 			return view('historicos.equipamento', compact('historicos'), ['marca'=> $marca, 'modelo' => $modelo, 'equipamento' => $equipamento]);
 		}
 
+
+		public function showPublic(Request $request)
+		{
+			$equipamento = Equipamento::where('numero_serie', $request->numero_serie)
+			->first();
+
+
+
+			$historicos = Historico::where('equipamento_id', $equipamento->id)
+			->paginate(10);
+
+			$marca = Marca::find($equipamento->marca_id);
+			$modelo = Modelo::find($equipamento->modelo_id);
+
+			return view('historicos.equipamentoPublico', compact('equipamento', 'historicos', 'marca', 'modelo'));
+
+		}
+
+		public function indexPublic(){
+
+			return view('historicos.indexPublic');
+		}
+
+
+
 		public function edit(Request $request)
 		{
 			$historico = Historico::where('id', $request->id)
