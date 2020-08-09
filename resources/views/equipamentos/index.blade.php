@@ -15,27 +15,28 @@ Equipamentos
 </div>
 @endif
 
-<table id="table">
+<table id="table" class="table table-striped table-bordered" style="width: 100%">
 	<thead>
 		<tr>
-			<td>Marca</td>
-			<td>Modelo</td>
-			<td>N° de série</td>
-			<td>Ações</td>
+			<th>Marca</th>
+			<th>Modelo</th>
+			<th>N° de série</th>
+			<th>Ações</th>
 		
 		</tr>
 	</thead>
+	<tbody>
 		@foreach ($equipamentos as $equipamento)
 			<tr>
 				<td>{{$equipamento->marca->nome}}</td>
 				<td>{{$equipamento->modelo->nome}}</td>
 				<td>{{$equipamento->numero_serie}}</td>
 				<td><span class="d-flex">
-						<a href="{{route('exibirEquipamento', $equipamento->id)}}" class="btn btn-info btn-sm mr-1">
+						<a href="{{route('exibirEquipamento', $equipamento->id)}}" class="btn btn-info btn-xs mr-1">
 							<i class="fas fa-external-link-alt" title="Editar"></i>
 						</a>
 
-						<a href="{{route('exibirHistoricosEquipamento', $equipamento->id)}}" class="btn btn-info btn-sm mr-1">
+						<a href="{{route('exibirHistoricosEquipamento', $equipamento->id)}}" class="btn btn-info btn-xs mr-1">
 							<i class="fas fa-history" alt="Histórico" title="Histórico"></i>
 						</a>
 
@@ -47,13 +48,28 @@ Equipamentos
 					</span></td>
 			</tr>
 		@endforeach
+	</tbody>
 </table>
 
 
 
 <script type="text/javascript">
     $(document).ready( function () {
-    $('#table').DataTable();
+    $('#table').DataTable({
+    	"language": {
+                "lengthMenu": "_MENU_ registros por página",
+            "zeroRecords": "Nada encontrado.",
+            "info": "Página _PAGE_ de _PAGES_",
+            "infoEmpty": "Nada encontrado.",
+            "infoFiltered": "(Filtrando de um total de _MAX_)",
+            "search": "Pesquisar",
+            "paginate": {
+            	"next": ">",
+            	"previous": "<"
+            }
+
+           }
+    });
 } );
   </script>
 

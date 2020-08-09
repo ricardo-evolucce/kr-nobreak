@@ -21,17 +21,25 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container-fluid">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-light mb-2 bg-gradient-info">
+
+          <!--<a href="/" class="navbar-brand mr-0">Brand</a> -->
+
+          <img class="navbar-brand mr-0" src="https://static.wixstatic.com/media/423870_787a5bfbea854a439332aada448f0ef2~mv2.png/v1/fill/w_150,h_45,al_c,q_85,usm_0.66_1.00_0.01/logotipo%20krnobreak%20transparente.webp">
+
+        
+
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{route('listarEquipamentos')}}">Início </a>
                     </li>
                     <li class="nav-item dropdown">
                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Estoque <span class="sr-only">(current)</span>
+                              Equipamentos<span class="sr-only">(current)</span>
                        </a>
                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                               
@@ -40,14 +48,19 @@
                           
                         </div>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-danger" href="/sair">Sair</a>
+                    </li>
                 </ul>
+
+
           </div>
         </nav>
 
-		<div class="jumbotron py-2">
+		<div class="py-5 text-left">
 			<h4>@yield('cabecalho')</h4>
-            @yield('equipamento')
-        </div>
+         @yield('equipamento')
+    </div>
 		@yield('conteudo')
 	</div>
 </body>

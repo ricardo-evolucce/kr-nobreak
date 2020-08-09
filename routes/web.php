@@ -47,6 +47,12 @@ Route::get('/', 'EquipamentosController@index');
 
 Auth::routes();
 
-Route::get('/entrar', 'EntrarController@index')->name('home');
+Route::get('/entrar', 'EntrarController@index')->name('entrar');
 Route::post('/entrar', 'EntrarController@entrar');
+
+Route::get('/sair', function (){
+	Auth::logout();
+
+	return redirect()->route('entrar');
+});
 
