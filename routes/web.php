@@ -37,11 +37,14 @@ Route::post('/historicos', 'HistoricosController@showPublic')->name('exibirHisto
 Route::get('/modelos', 'ModelosController@index')->name('listarModelos');
 Route::get('/modelos/cadastrar', 'ModelosController@create')->name('cadastrarModelo');
 Route::post('modelos/cadastrar', 'ModelosController@store')->name('cadastrarModelo');
+Route::delete('/modelos/remover/{id}', 'ModelosController@destroy')->name('removerModelo');
+Route::post('/modelos/{id}/editaNome', 'ModelosController@editaNome');
 
 Route::get('/marcas', 'MarcasController@index')->name('listarMarcas');
 Route::get('/marcas/cadastrar', 'MarcasController@create')->name('cadastrarMarca');
 Route::post('/marcas/cadastrar', 'MarcasController@store')->name('cadastrarMarca');
 Route::delete('/marcas/remover/{id}', 'MarcasController@destroy')->name('removerMarca');
+Route::post('/marcas/{id}/editaNome', 'MarcasController@editaNome');
 
 Route::get('/', 'EquipamentosController@index'); 
 

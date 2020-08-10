@@ -23,8 +23,10 @@
 @endsection
 
 @section('cabecalho')
-<a href="{{route('listarEquipamentos')}}">Equipamentos</a>
-<h6>Editar equipamento N° Série: {{$equipamento->numero_serie}}</h6>
+Equipamentos
+	@section('pagina')
+	Editar equipamento N° Série: {{$equipamento->numero_serie}}
+	@endsection
 @endsection
 
 @section('conteudo')

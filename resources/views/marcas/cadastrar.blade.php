@@ -1,7 +1,11 @@
 @extends('layout')
 
 @section('cabecalho')
-Marcas
+	Marcas
+	@section('pagina')
+	Cadastrar
+	@endsection
+
 @endsection
 
 @section('conteudo')

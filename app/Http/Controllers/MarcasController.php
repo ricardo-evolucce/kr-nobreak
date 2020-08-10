@@ -35,7 +35,7 @@ class MarcasController extends Controller
 
 		$request->session()
 		->flash('mensagem',
-			"Marca {$marca->nome} cadastrada com sucesso."
+			"Marca '{$marca->nome}' cadastrada com sucesso."
 			);
 
 		return redirect()->route('listarMarcas');
@@ -47,14 +47,26 @@ class MarcasController extends Controller
 
 	public function destroy(Request $request)
 	{
+
+		$marca = Marca::find($request->id);
+
+
 		Marca::destroy($request->id);
 		$request->session()
 			->flash
 			('mensagem',
-				"Marca apagada com sucesso."
+				"Marca '{$marca->nome}' apagada com sucesso."
 			);
 
 			return redirect()->route('listarMarcas');
+	}
+
+	public function editaNome(Request $request){
+		$novoNome = $request->nome;
+		$marca = Marca::find($request->id);
+		$marca->nome = $novoNome;
+		$marca->save();
+
 	}
 
 

@@ -3,7 +3,10 @@
 
 @section('cabecalho')
 
-Equipamentos
+	Equipamentos
+	@section('pagina')
+	Exibindo todos
+	@endsection
 
 @endsection
 

@@ -6,7 +6,8 @@ use App\Marca;
 
 class Modelo extends Model{
 	public $timestamps = false;
-	protected $fillable = ['nome'];
+	protected $fillable = ['nome', 'marca_id'];
+
 
 	public function equipamentos(){
 		return $this->hasMany(Equipamento::class);
