@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Equipamentos</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('js/bootstrap-4.1.3-dist/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/datatables.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/icons/css/all.css') }}">
 

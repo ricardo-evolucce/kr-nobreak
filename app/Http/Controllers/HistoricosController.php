@@ -61,7 +61,13 @@ class HistoricosController extends Controller
 			$equipamento = Equipamento::where('id', $historico->equipamento_id)
 			->first();
 
-			return view('historicos.editar', ['historico' => $historico, 'equipamento' => $equipamento]);
+			$marca = Marca::find($equipamento->marca_id);
+			$modelo = Modelo::find($equipamento->modelo_id);
+
+
+
+			return view('historicos.editar', ['historico' => $historico, 'equipamento' => $equipamento, 'marca' => $marca,
+			'modelo'=> $modelo]);
 		}
 
 		public function store(HistoricosFormRequest $request)

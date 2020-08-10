@@ -5,8 +5,90 @@
 	Histórico do equipamento
 
 		@section('equipamento')
-			<h6>Marca: {{$marca->nome}} | Modelo: {{$modelo->nome}}</h6>
-			<h6>N° de série: {{$equipamento->numero_serie}}</h6>
+			<div class="row align-items-center">
+				<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Marca</strong>
+			    		{{$marca->nome}}
+          			</p>
+          		</div>
+          		<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Modelo</strong>
+			    		{{$modelo->nome}}
+          			</p>
+          		</div>
+          		<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">N° Série</strong>
+			    		{{$equipamento->numero_serie}}
+          			</p>
+          		</div>
+          		<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">N° NFE</strong>
+			    		{{$equipamento->numero_nfe}}
+          			</p>
+          		</div>
+          	</div>
+
+          	<div class="row align-items-center">
+				<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Tensão Entrada:</strong>
+			    		{{$equipamento->tensao_entrada}}
+          			</p>
+          		</div>
+          		<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Tensão Saida:</strong>
+			    		{{$equipamento->tensao_saida}}
+          			</p>
+          		</div>
+          		<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Potência:</strong>
+			    		{{$equipamento->potencia}}
+          			</p>
+          		</div>
+          		<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Início Garantia:</strong>
+			    		{{$equipamento->inicio_garantia}}
+          			</p>
+          		</div>
+          	</div>
+
+          	<div class="row align-items-center">
+          		<div class="col col-9">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Observações:</strong>
+			    		{{$equipamento->observacoes}}
+          			</p>
+          		</div>
+				<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Fim Garantia:</strong>
+			    		{{$equipamento->fim_garantia}}
+          			</p>
+          		</div>
+          		
+       
+          	</div>
+
+          	<div class="row align-items-center">
+          		<div class="col col-12">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Observações internas:</strong>
+			    		{{$equipamento->observacoes_internas}}
+          			</p>
+          		</div>
+			
+          		
+       
+          	</div>
+
+
 			
 
 		@endsection
@@ -27,7 +109,7 @@
 	</div>
 @endif
 
-<form action="{{ Route('cadastrarHistoricoEquipamento') }}" method="post">
+<form action="{{ Route('cadastrarHistoricoEquipamento') }}" method="post" class="no-print">
 	@csrf
 		<div class="row align-items-center">
 			<div class="col col-3">
@@ -92,7 +174,7 @@
 					<span>{{$historico->descricao}}</span>
 				</td>
 				<td>
-					<span class="d-flex">
+					<span class="d-flex no-print">
 						<a href="{{ Route('exibirHistoricoEquipamento', $historico->id) }}"><button class="btn btn-info btn-sm" title="Editar"><i class="fas fa-edit"></i></button></a>
 
 						<form action="{{ Route('removerHistorico', $historico->id) }}" method="post">

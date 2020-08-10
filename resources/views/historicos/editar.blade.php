@@ -5,8 +5,32 @@
 	Histórico do equipamento
 
 		@section('equipamento')
-			<h6>Marca: {{$equipamento->id}} | Modelo: {{$equipamento->modelo_id}}</h6>
-			<h6>N° de série: {{$equipamento->num_serie}}</h6>
+		<div class="row align-items-center">
+				<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Marca</strong>
+			    		{{$marca->nome}}
+          			</p>
+          		</div>
+          		<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">Modelo</strong>
+			    		{{$modelo->nome}}
+          			</p>
+          		</div>
+          		<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">N° Série</strong>
+			    		{{$equipamento->numero_serie}}
+          			</p>
+          		</div>
+          		<div class="col col-3">
+					<p class="media-body pb-3 mb-0  lh-125">
+			        	<strong class="d-block text-gray-dark">N° NFE</strong>
+			    		{{$equipamento->numero_nfe}}
+          			</p>
+          		</div>
+          </div>
 			
 
 		@endsection

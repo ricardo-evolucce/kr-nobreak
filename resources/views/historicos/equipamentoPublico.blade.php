@@ -86,7 +86,7 @@
 
 @section('conteudo')
 
-<form action="{{ Route('exibirHistoricoEquipamentoPublico') }}" method="post">
+<form action="{{ Route('exibirHistoricoEquipamentoPublico') }}" method="post" class="no-print">
 	@csrf
 		
 
