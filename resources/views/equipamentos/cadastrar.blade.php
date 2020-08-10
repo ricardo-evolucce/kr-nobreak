@@ -4,7 +4,11 @@
 @endsection
 
 @section('cabecalho')
-Equipamentos<h6>Cadastrar equipamento</h6>
+Equipamentos
+
+	@section('pagina')
+	Cadastrar equipamento
+	@endsection
 @endsection
 
 @section('conteudo')

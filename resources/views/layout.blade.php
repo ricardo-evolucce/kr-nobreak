@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Equipamentos</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('js/bootstrap-4.1.3-dist/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/datatables.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/icons/css/all.css') }}">
 
@@ -14,7 +15,7 @@
     <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap-4.1.3-dist/js/bootstrap.min.js') }}"></script>
-    
+
 
 
 
@@ -23,7 +24,7 @@
 <body>
 	<div class="container-fluid">
 
-        <nav class="navbar navbar-expand-md navbar-light mb-2 bg-gradient-info">
+        <nav class="navbar navbar-expand-md mb-2 text-light menu" style="">
 
           <!--<a href="/" class="navbar-brand mr-0">Brand</a> -->
 
@@ -57,11 +58,12 @@
           </div>
         </nav>
 
-		<div class="py-5 text-left">
-			<h4>@yield('cabecalho')</h4>
+		<div class="py-3 text-left">
+			<h2 class="lead border-bottom border-dark rounded w-25 p-2">@yield('cabecalho')</h2>
+      <h6 class="w-25 p-1">@yield('pagina')</h6>
          @yield('equipamento')
     </div>
 		@yield('conteudo')
 	</div>
 </body>
-</html>
+</html> 
