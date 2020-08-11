@@ -12,11 +12,7 @@
 
 @section('conteudo')
 
-@if(!empty($mensagem))
-<div class="alert alert-success">
-{{ $mensagem }}
-</div>
-@endif
+ 
 
 <table id="table" class="table table-striped table-bordered" style="width: 100%">
 	<thead>
@@ -43,7 +39,7 @@
 							<i class="fas fa-history" alt="Histórico" title="Histórico"></i>
 						</a>
 
-						<form method="post" action="/equipamentos/remover/{{$equipamento->id}}">
+						<form method="post" action="/equipamentos/remover/{{$equipamento->id}}" onsubmit="return confirm('Confirma remoção do equipamento {{$equipamento->numero_serie}} ?')">
 							@csrf
 							@method('DELETE')
 							<button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

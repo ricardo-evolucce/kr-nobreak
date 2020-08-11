@@ -10,6 +10,16 @@ use App\Marca;
 
 class ModelosController extends Controller
 {
+
+
+		public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
+
+
+	
 	public function index(Request $request){
 		$marcas = Marca::query()->orderBy('nome')->get();
 		$modelos = Modelo::query()->orderBy('nome')->get();

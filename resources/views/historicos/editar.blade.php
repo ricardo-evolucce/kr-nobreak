@@ -83,7 +83,7 @@
 
 			<div class="col col-2">
 				<label for="descricao">.</label>
-				<button class="form-control btn btn-primary" id="cadastrar">Atualizar</button>
+				<button class="form-control btn btn-info" id="cadastrar">Editar</button>
 			</div>
 		</div>
 

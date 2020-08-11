@@ -24,15 +24,18 @@ class EquipamentosFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_serie' => 'required|min:5'
+            'numero_serie' => 'required|min:5',
+            'inicio_garantia' => 'required',
+            'potencia' => 'required'
+
         ];
     }
 
     public function messages(){
 
         return [
-            'required' => 'O campo :attribute é obrigatório.',
-            'min' => 'O campo :attribute deve ter no mínimo :min caracteres'
+            'required' => 'O campo ":attribute" é obrigatório.',
+            'min' => 'O campo ":attribute" deve ter no mínimo :min caracteres'
 
         ];
     }

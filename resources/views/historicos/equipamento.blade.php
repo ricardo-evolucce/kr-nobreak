@@ -54,7 +54,8 @@
           		<div class="col col-3">
 					<p class="media-body pb-3 mb-0  lh-125">
 			        	<strong class="d-block text-gray-dark">Início Garantia:</strong>
-			    		{{$equipamento->inicio_garantia}}
+			    		{{$equipamento->inicio_garantia->format('d/m/Y')}} 
+			    	
           			</p>
           		</div>
           	</div>
@@ -69,7 +70,19 @@
 				<div class="col col-3">
 					<p class="media-body pb-3 mb-0  lh-125">
 			        	<strong class="d-block text-gray-dark">Fim Garantia:</strong>
-			    		{{$equipamento->fim_garantia}}
+			        	@switch($equipamento->fim_garantia)
+				    		@case(1)
+				    		12 meses
+				    		@break
+				    		@case(2)
+				    		18 meses
+				    		@break
+				    		@case(3)
+				    		24 meses
+				    		@break
+				    		@default
+				    		Erro. Verificar suporte.
+			    		@endswitch
           			</p>
           		</div>
           		
@@ -109,7 +122,7 @@
 	</div>
 @endif
 
-<form action="{{ Route('cadastrarHistoricoEquipamento') }}" method="post" class="no-print">
+<form action="{{ Route('cadastrarHistoricoEquipamento') }}" method="post" class="border-top border-dark rounded pt-2 no-print">
 	@csrf
 		<div class="row align-items-center">
 			<div class="col col-3">
@@ -141,7 +154,7 @@
 
 			<div class="col col-2">
 				<label for="descricao">.</label>
-				<button class="form-control btn btn-primary" id="cadastrar">Cadastrar</button>
+				<button class="form-control btn btn-info" id="cadastrar">Cadastrar</button>
 			</div>
 		</div>
 

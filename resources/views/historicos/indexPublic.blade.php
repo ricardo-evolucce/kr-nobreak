@@ -10,6 +10,12 @@
 
 @section('conteudo')
 
+@if(!empty($mensagem))
+<div class="alert alert-danger">
+{{ $mensagem }}
+</div>
+@endif
+
 <form action="{{ Route('exibirHistoricoEquipamentoPublico') }}" method="post">
 	@csrf
 		

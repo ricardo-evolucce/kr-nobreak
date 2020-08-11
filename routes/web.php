@@ -24,11 +24,11 @@ Route::get('/equipamentos/{id}', 'EquipamentosController@show')->name('exibirEqu
 Route::post('/equipamentos/update', 'EquipamentosController@update')->name('editarEquipamento');
 
 
-Route::post('/equipamentos/historicos/cadastrar', 'HistoricosController@store')->name('cadastrarHistoricoEquipamento');
-Route::get('/equipamentos/{id}/historicos/', 'HistoricosController@show')->name('exibirHistoricosEquipamento');
-Route::get('/equipamentos/historico/{id}', 'HistoricosController@edit')->name('exibirHistoricoEquipamento');
-Route::post('/equipamentos/historico', 'HistoricosController@update')->name('editarHistoricoEquipamento');
-Route::delete('/equipamentos/historico/remover/{id}', 'HistoricosController@destroy')->name('removerHistorico');
+Route::post('/equipamentos/historicos/cadastrar', 'HistoricosController@store')->name('cadastrarHistoricoEquipamento')->middleware('auth');;
+Route::get('/equipamentos/{id}/historicos/', 'HistoricosController@show')->name('exibirHistoricosEquipamento')->middleware('auth');;
+Route::get('/equipamentos/historico/{id}', 'HistoricosController@edit')->name('exibirHistoricoEquipamento')->middleware('auth');;
+Route::post('/equipamentos/historico', 'HistoricosController@update')->name('editarHistoricoEquipamento')->middleware('auth');;
+Route::delete('/equipamentos/historico/remover/{id}', 'HistoricosController@destroy')->name('removerHistorico')->middleware('auth');;
 
 Route::get('/historicos', 'HistoricosController@indexPublic')->name('indexHistoricoEquipamentoPublic');
 Route::post('/historicos', 'HistoricosController@showPublic')->name('exibirHistoricoEquipamentoPublico');

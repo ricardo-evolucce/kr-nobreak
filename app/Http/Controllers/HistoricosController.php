@@ -10,9 +10,15 @@ use App\Marca;
 use App\Modelo;
 
 class HistoricosController extends Controller
+
+
+
 	{
 		public function show(Request $request)
 		{
+
+
+
 			//$request->equipamento_id = null ? $equipamento_id = $request->id : $equipamento_id = $request->equipamento_id;
 
 			$equipamento_id = $request->equipamento_id ?? $request->id;
@@ -34,7 +40,14 @@ class HistoricosController extends Controller
 			$equipamento = Equipamento::where('numero_serie', $request->numero_serie)
 			->first();
 
+			if(is_null($equipamento)){
 
+				$request->session()
+				->flash('mensagem', 'Número de série não encontrado');
+
+				return back($status = 302, $headers = [], $fallback = false);
+
+			}
 
 			$historicos = Historico::where('equipamento_id', $equipamento->id)
 			->paginate(10);
@@ -46,9 +59,14 @@ class HistoricosController extends Controller
 
 		}
 
-		public function indexPublic(){
+		public function indexPublic(Request $request){
 
-			return view('historicos.indexPublic');
+			$mensagem = $request->session()->get('mensagem');
+
+			return view('historicos.indexPublic', compact('mensagem'));
+
+
+
 		}
 
 

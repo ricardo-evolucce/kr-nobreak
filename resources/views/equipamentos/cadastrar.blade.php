@@ -118,6 +118,6 @@ Equipamentos
 	    	</div>
 	    </div>
 
-        <button class="btn btn-primary">Cadastrar</button>
+        <button class="btn btn-info mt-2">Cadastrar</button>
         </form>
 @endsection
