@@ -37,14 +37,27 @@
 				<div class="col col-3">
 					<p class="media-body pb-3 mb-0  lh-125">
 			        	<strong class="d-block text-gray-dark">Tensão Entrada:</strong>
-			    		{{$equipamento->tensao_entrada}}
+			    		@switch($equipamento->tensao_entrada)
+				    		@case(1)
+				    		127v
+				    		@break
+				    		@case(2)
+				    		220v
+			    		@break
+			    		@endswitch
           			</p>
           		</div>
           		<div class="col col-3">
 					<p class="media-body pb-3 mb-0  lh-125">
 			        	<strong class="d-block text-gray-dark">Tensão Saida:</strong>
-			    		{{$equipamento->tensao_saida}}
-          			</p>
+			    		@switch($equipamento->tensao_saida)
+				    		@case(1)
+				    		127v
+				    		@break
+				    		@case(2)
+				    		220v
+			    		@break
+			    		@endswitch
           		</div>
           		<div class="col col-3">
 					<p class="media-body pb-3 mb-0  lh-125">
@@ -55,7 +68,7 @@
           		<div class="col col-3">
 					<p class="media-body pb-3 mb-0  lh-125">
 			        	<strong class="d-block text-gray-dark">Início Garantia:</strong>
-			    		{{$equipamento->inicio_garantia}}
+			    		{{$equipamento->inicio_garantia->format('d/m/Y')}}
           			</p>
           		</div>
           	</div>
@@ -70,7 +83,19 @@
 				<div class="col col-3">
 					<p class="media-body pb-3 mb-0  lh-125">
 			        	<strong class="d-block text-gray-dark">Fim Garantia:</strong>
-			    		{{$equipamento->fim_garantia}}
+			    		@switch($equipamento->fim_garantia)
+				    		@case(1)
+				    		{{$equipamento->inicio_garantia->addMonths(12)->format('d/m/Y')}}
+				    		@break
+				    		@case(2)
+				    		{{$equipamento->inicio_garantia->addMonths(18)->format('d/m/Y')}}
+				    		@break
+				    		@case(3)
+				    		{{$equipamento->inicio_garantia->addMonths(24)->format('d/m/Y')}}
+				    		@break
+				    		@default
+				    		Erro. Verificar suporte.
+			    		@endswitch
           			</p>
           		</div>
           		
